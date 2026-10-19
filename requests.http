@@ -1,0 +1,35 @@
+### Cadastrar usuário
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Daniel Moura",
+  "nickname": "xwxdanielxwx",
+  "email": "zombieplay66@gmail.com",
+  "password": "Danielpunkskate1@"
+}
+
+
+
+### Login pelo email
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "login": "zombieplay66@gmail.com",
+  "password": "Danielpunkskate1@"
+}
+
+### Login pelo nickname
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "login": "xwxdanielxwx",
+  "password": "Danielpunkskate1@"
+}
+
+
+### Buscar usuário autenticado
+GET http://localhost:3000/auth/me
+Authorization: Bearer {{login.response.body.$.access_token}}
