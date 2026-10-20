@@ -44,3 +44,8 @@ export { Prisma }
  * 
  */
 export type User = Prisma.UserModel
+/**
+ * Model FarmSave
+ * 
+ */
+export type FarmSave = Prisma.FarmSaveModel
