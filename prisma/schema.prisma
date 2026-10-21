@@ -18,6 +18,7 @@ model User {
   updatedAt DateTime @updatedAt
 
   farmSave FarmSave?
+  refreshSessions RefreshSession[]
 
   @@map("users")
 }
@@ -36,4 +37,18 @@ model FarmSave {
   updatedAt DateTime @updatedAt
 
   @@map("farm_saves")
+}
+
+model RefreshSession {
+  id         String   @id @default(uuid()) @db.Uuid
+  userId     String   @db.Uuid
+  tokenHash  String   @unique @db.VarChar(64)
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  lastUsedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_sessions")
 }
