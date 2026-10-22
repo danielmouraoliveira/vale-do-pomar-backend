@@ -1,3 +1,4 @@
+import { VisitorsModule } from './visitors/visitors.module.js';
 
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -7,7 +8,7 @@ import { AuthModule } from './auth/auth.module.js';
 import { SavesModule } from './saves/saves.module.js';
 
 @Module({
-  imports: [
+  imports: [VisitorsModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
